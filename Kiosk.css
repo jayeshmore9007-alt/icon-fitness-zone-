@@ -1,0 +1,120 @@
+.kiosk {
+  display: flex;
+  align-items: center;
+  background: radial-gradient(ellipse at top left, rgba(255, 90, 31, 0.08), transparent 55%);
+}
+.kiosk-intro {
+  min-width: 0;
+}
+.kiosk-grid {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+@media (min-width: 860px) {
+  .kiosk-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.kiosk > .container {
+  width: 100%;
+}
+.kiosk-lead {
+  color: var(--color-muted);
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 1.5rem;
+}
+.kiosk-btn {
+  min-height: 56px;
+  min-width: 44px;
+  white-space: nowrap;
+}
+.kiosk-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.kiosk-scan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  text-align: center;
+}
+.kiosk-frame {
+  position: relative;
+  width: min(100%, 280px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 3px solid var(--color-muted);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+.kiosk-scanning,
+.kiosk-blink {
+  border-color: var(--color-accent);
+  box-shadow: 0 0 36px rgba(255, 90, 31, 0.5);
+}
+.kiosk-done {
+  border-color: #2ecc71;
+  box-shadow: 0 0 36px rgba(46, 204, 113, 0.5);
+}
+.kiosk-face {
+  display: flex;
+  gap: 2.2rem;
+}
+.kiosk-eye {
+  width: 28px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--color-text);
+}
+.kiosk-blink .kiosk-eye {
+  animation: kiosk-blink 0.9s infinite;
+}
+.kiosk-line {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--color-accent);
+  opacity: 0;
+}
+.kiosk-scanning .kiosk-line {
+  opacity: 1;
+  animation: kiosk-sweep 1.2s ease-in-out infinite alternate;
+}
+@keyframes kiosk-sweep {
+  from { top: 10%; }
+  to { top: 90%; }
+}
+@keyframes kiosk-blink {
+  0%, 40%, 100% { transform: scaleY(1); }
+  50% { transform: scaleY(0.1); }
+}
+.kiosk-status {
+  margin: 0;
+  font-weight: 600;
+  font-size: 1.125rem;
+}
+.kiosk-result {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 12px;
+  color: #fff;
+}
+.kiosk-result.is-ok { background: #1c7a45; }
+.kiosk-result.is-due { background: #a62b2b; }
+@media (prefers-reduced-motion: reduce) {
+  .kiosk-scanning .kiosk-line,
+  .kiosk-blink .kiosk-eye {
+    animation: none;
+  }
+  .kiosk-frame { transition: none; }
+}

@@ -1,0 +1,67 @@
+.admin {
+  background: radial-gradient(ellipse at top right, rgba(255, 90, 31, 0.08), transparent 55%);
+}
+.admin-kpis {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  margin-bottom: 1.5rem;
+}
+.admin-kpi {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  padding: 1.25rem;
+  color: var(--color-muted);
+}
+.admin-kpi-num {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1;
+}
+.admin-section {
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.admin-h2 {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: var(--color-text);
+}
+.admin-scroll {
+  overflow-x: auto;
+}
+.admin-table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  text-align: left;
+}
+.admin-table th,
+.admin-table td {
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  white-space: nowrap;
+}
+.admin-table th {
+  color: var(--color-muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.admin-badge {
+  display: inline-block;
+  padding: 0.25rem 0.7rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+.admin-badge.is-paid { background: #1c7a45; color: #fff; }
+.admin-badge.is-due { background: #a62b2b; color: #fff; }
+.admin-badge.is-info { background: rgba(255, 90, 31, 0.18); color: #ffb08f; }
+.admin-bar {
+  width: 140px;
+  height: 10px;
+  accent-color: var(--color-accent);
+}
